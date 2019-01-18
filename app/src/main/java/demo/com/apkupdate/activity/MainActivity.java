@@ -10,6 +10,10 @@ import demo.com.apkupdate.R;
 import demo.com.apkupdate.update.UpdateService;
 import demo.com.apkupdate.view.CommonDialog;
 
+/**
+ *  解决 Android N 7.0 上 报错：android.os.FileUriExposedException
+ *  https://blog.csdn.net/yy1300326388/article/details/52787853
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button updateBtn;
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
                 Intent intent = new Intent(MainActivity.this, UpdateService.class);
 //                intent.putExtra("apkUrl", "http://121.42.53.175:8080/hello_project/resources/upload/TianQiBao201605231.apk");
-                intent.putExtra("apkUrl", "4.4.2");
+                intent.putExtra("apkUrl", "https://github.com/jinhuizxc/ApkUpdate/blob/master/app/release/app-release.apk?raw=true");
                 startService(intent);
             }
         });
